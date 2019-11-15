@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jet-list.component.css']
 })
 export class JetListComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
