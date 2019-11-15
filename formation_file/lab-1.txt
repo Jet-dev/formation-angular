@@ -1,0 +1,9 @@
+// Liste de Jets
+[
+  new Jet('Rafale', 2001),
+  new Jet('F-16', 1970),
+  new Jet('F-14 Tomcat', 1974),
+  new Jet('Eurofighter Typhoon', 2004, false),
+  new Jet('Soukhoï Su-37', 1996)
+];
+``
