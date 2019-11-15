@@ -1,0 +1,11 @@
+<ul>
+  <ng-container *ngFor="let jet of jets; even as even">
+    <li *ngIf="jet.isActive || showEverything" [ngClass]="{'grey-background' : even}">
+      {{jet.name}}
+    </li>
+  </ng-container>
+</ul>
+
+<button class="btn btn-info" (click)="onBtnClick()">
+  Show isActive
+</button>

@@ -6,6 +6,7 @@ import { SquadronEditComponent } from './squadron/squadron-edit/squadron-edit.co
 import { SquadronComponent } from './squadron/squadron.component';
 import { HeaderComponent } from './header/header.component';
 import { JetsComponent } from './jets/jets.component';
+import { JetListComponent } from './jets/jet-list/jet-list.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { JetsComponent } from './jets/jets.component';
     HeaderComponent,
     SquadronComponent,
     SquadronEditComponent,
-    JetsComponent
+    JetsComponent,
+    JetListComponent
   ],
   imports: [
     BrowserModule
