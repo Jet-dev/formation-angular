@@ -2,11 +2,17 @@
   <h1>Squadron</h1>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6" *ngIf="jets.length; else noJets">
     <ul class="list-group">
-      <li class="list-group-item" style="cursor: pointer" *ngFor="let jet of jets">
+      <li class="list-group-item" *ngFor="let jet of jets" (click)="removeJet(jet)">
         {{ jet.name }} ({{ jet.maker }})
       </li>
     </ul>
   </div>
 </div>
+
+<ng-template #noJets>
+  <div class="col-md-6" style="text-align: center">
+    Your squadron is empty, please add some jets
+  </div>
+</ng-template>

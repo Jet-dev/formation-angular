@@ -1,0 +1,13 @@
+<form class="form-inline" autocomplete="off">
+  <div class="form-group">
+    <input placeholder="name" type="text" name="name" class="form-control" [(ngModel)]="newJet.name">
+  </div>
+  <div class="form-group">
+    <input placeholder="maker" type="text" name="maker" class="form-control" [(ngModel)]="newJet.maker">
+  </div>
+  <div class="form-group">
+    <input placeholder="picture" type="text" name="picture" class="form-control" [(ngModel)]="newJet.pictureUrl">
+  </div>
+  <button class="btn btn-success" type="button" (click)="onJetCreation()">Create Jet</button>
+  <button class="btn btn-primary" type="button">Clear</button>
+</form>

@@ -1,0 +1,10 @@
+<div (click)="selectJet()" class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ jet.name }}</h4>
+    <p class="list-group-item-text">{{ jet.maker }}</p>
+  </div>
+  <span class="pull-right">
+        <img [src]="jet.pictureUrl" alt="{{ jet.name }}"
+             class="img-responsive" style="max-height: 50px;">
+      </span>
+</div>
