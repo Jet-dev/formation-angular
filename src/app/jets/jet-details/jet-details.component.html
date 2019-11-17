@@ -1,1 +1,26 @@
-<p>jet-details works!</p>
+<div class="page-header">
+  <h1>{{jet.name}}</h1>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <img
+      [src]="jet.pictureUrl"
+      alt="{{ jet.name }}"
+      class="img-responsive"
+      style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h1>{{ jet.maker }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="btn-group">
+      <button class="btn btn-success" type="button">Add To Squadron</button>
+      <button class="btn btn-primary" type="button">Edit</button>
+      <button class="btn btn-danger" type="button">Delete</button>
+    </div>
+  </div>
+</div>

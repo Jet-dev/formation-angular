@@ -4,11 +4,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { JetsComponent } from './jets/jets.component';
 
-import { SquadronEditComponent } from './squadron/squadron-edit/squadron-edit.component';
 import { SquadronComponent } from './squadron/squadron.component';
-import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
 import { JetListComponent } from './jets/jet-list/jet-list.component';
 import { JetDetailsComponent } from './jets/jet-details/jet-details.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -16,14 +16,14 @@ import { JetDetailsComponent } from './jets/jet-details/jet-details.component';
     AppComponent,
     HeaderComponent,
     JetListComponent,
-    JetItemComponent,
     JetDetailsComponent,
     SquadronComponent,
-    SquadronEditComponent,
-    JetsComponent
+    JetsComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
