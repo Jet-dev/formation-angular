@@ -31,7 +31,8 @@ const appRoutes: Routes = [
     HomeComponent,
     JetsComponent,
     JetItemComponent,
-    JetCreationComponent
+    JetCreationComponent,
+    JetDetailsEditComponent
   ],
   imports: [
     BrowserModule,

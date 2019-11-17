@@ -22,7 +22,8 @@
                   (click)="addJetToSquadron(jet)"
                   type="button">Add To Squadron
           </button>
-          <button class="btn btn-primary" type="button">Edit</button>
+          <button class="btn btn-primary" type="button"
+          [routerLink]="['/jets', jet.id, 'edit']">Edit</button>
           <button class="btn btn-danger" type="button">Delete</button>
         </div>
       </div>
