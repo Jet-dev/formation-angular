@@ -26,6 +26,14 @@ export class JetService {
     this.jets.push(jet);
   }
 
+  updateJet(updatedJet: Jet) {
+    this.jets.forEach((jet) => {
+      if (jet.id === updatedJet.id) {
+        jet = { ...updatedJet };
+      }
+    })
+  }
+
   fetchJetById(jetId: number): Jet {
     return this.jets.find((jet) => jet.id === jetId);
   }

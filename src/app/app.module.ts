@@ -12,13 +12,18 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
 import { RouterModule, Routes } from '@angular/router';
+import { JetDetailsEditComponent } from './jets/jet-details-edit/jet-details-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'jets', component: JetsComponent },
-  { path: 'jets/:id', component: JetDetailsComponent },
+  {
+    path: 'jets', component: JetsComponent, children: [
+      { path: ':id', component: JetDetailsComponent },
+      { path: ':id/edit', component: JetDetailsEditComponent }
+    ]
+  },
   { path: 'squadron', component: SquadronComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
