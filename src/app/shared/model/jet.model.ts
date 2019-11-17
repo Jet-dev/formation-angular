@@ -1,6 +1,6 @@
 export class Jet {
 
-  constructor(public name: string = "", public maker: string = "", public pictureUrl: string = "") {
+  constructor(public id: number, public name: string = '', public maker: string = '', public pictureUrl: string = '') {
   }
 
 }

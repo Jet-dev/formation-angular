@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="btn-group">
+        <div class="btn-group" style="margin: 16px;">
           <button class="btn btn-success"
                   (click)="addJetToSquadron(jet)"
                   type="button">Add To Squadron
@@ -26,6 +26,11 @@
           <button class="btn btn-danger" type="button">Delete</button>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <button style="margin: 16px;" class="btn btn-primary" (click)="reloadForDemo()">
+        RELOAD SAME COMPONENT
+      </button>
     </div>
   </div>
 </ng-container>

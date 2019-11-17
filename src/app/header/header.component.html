@@ -5,9 +5,11 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Jets</a></li>
-        <li><a href="#">Squadron</a></li>
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="'/'">Home</a></li>
+        <li routerLinkActive="active"><a [routerLink]="'jets'">Jets</a></li>
+        <li routerLinkActive="active"><a [routerLink]="'squadron'">Squadron</a></li>
       </ul>
     </div>
   </div>

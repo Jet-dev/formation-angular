@@ -11,7 +11,15 @@ import { JetCreationComponent } from './jets/jet-list/jet-creation/jet-creation.
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'jets', component: JetsComponent },
+  { path: 'jets/:id', component: JetDetailsComponent },
+  { path: 'squadron', component: SquadronComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +35,8 @@ import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
