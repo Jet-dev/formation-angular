@@ -9,13 +9,13 @@ import { JetService } from '../../../shared/service/jet.service';
 })
 export class JetCreationComponent {
 
-  newJet = new Jet('', '', '');
+  newJet = new Jet(0, '', '', '');
 
   constructor(private jetService: JetService) {
   }
 
   onJetCreation() {
     this.jetService.createJet(this.newJet);
-    this.newJet = new Jet('', '', '');
+    this.newJet = new Jet(0, '', '', '');
   }
 }

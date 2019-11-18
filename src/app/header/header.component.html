@@ -10,6 +10,14 @@
           <a [routerLink]="'/'">Home</a></li>
         <li routerLinkActive="active"><a [routerLink]="'jets'">Jets</a></li>
         <li routerLinkActive="active"><a [routerLink]="'squadron'">Squadron</a></li>
+        <li>
+
+        </li>
+        <form class="navbar-form navbar-right">
+          <span style="margin-right: 8px;" >{{loggedIn ? 'Logged in' : 'Logged out'}}</span>
+          <button  style="margin-right: 8px;" class="btn btn-success" (click)="login()" >Log In</button>
+          <button  style="margin-right: 8px;" class="btn btn-warning" (click)="logout()" >Log Out</button>
+        </form>
       </ul>
     </div>
   </div>
