@@ -1,6 +1,6 @@
-<ng-container *ngIf="jet">
+<ng-container *ngIf="jet$ | async as jet">
   <div class="page-header">
-    <h1>{{jet.name}}</h1>
+    <h1>{{jet.name}} - {{ jet.maker }}</h1>
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -12,26 +12,17 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h1>{{ jet.maker }}</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
         <div class="btn-group" style="margin: 16px;">
           <button class="btn btn-success"
                   (click)="addJetToSquadron(jet)"
                   type="button">Add To Squadron
           </button>
           <button class="btn btn-primary" type="button"
-          [routerLink]="['/jets', jet.id, 'edit']">Edit</button>
-          <button class="btn btn-danger" type="button">Delete</button>
+                  [routerLink]="['/jets', jet.id, 'edit']">Edit
+          </button>
+          <button class="btn btn-danger" type="button" (click)="deleteJet(jet.id)">Delete</button>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <button style="margin: 16px;" class="btn btn-primary" (click)="reloadForDemo()">
-        RELOAD SAME COMPONENT
-      </button>
     </div>
   </div>
 </ng-container>

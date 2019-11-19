@@ -3,6 +3,7 @@ import { Jet } from '../../shared/model/jet.model';
 import { JetService } from '../../shared/service/jet.service';
 import { SquadronService } from '../../shared/service/squadron.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-jet-details-edit',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class JetDetailsEditComponent implements OnInit {
 
-  jet: Jet;
+  jet$: Observable<Jet>;
 
   constructor(private jetService: JetService,
               private squadronService: SquadronService,
@@ -20,13 +21,14 @@ export class JetDetailsEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jet = this.jetService.fetchJetById(+this.route.snapshot.params['id']);
+    this.jet$ = this.jetService.fetchJetById(this.route.snapshot.params['id']);
     this.route.params
       .subscribe((params: Params) =>
-        this.jet = this.jetService.fetchJetById(+params['id']));
+        this.jet$ = this.jetService.fetchJetById(params['id']));
   }
 
-  saveChanges() {
 
+  saveChanges(jet: Jet) {
+    console.log(JSON.stringify(jet, null, 4));
   }
 }

@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JetDetailsEditComponent } from './jets/jet-details-edit/jet-details-edit.component';
 import { CanEditGuard } from './shared/guards/can-edit.guard';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

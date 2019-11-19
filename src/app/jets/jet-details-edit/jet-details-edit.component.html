@@ -1,4 +1,4 @@
-<ng-container *ngIf="jet">
+<ng-container *ngIf="jet$ | async as jet">
   <div class="page-header">
     <h1>{{jet.name}}</h1>
   </div>
@@ -12,7 +12,7 @@
 
   <div class="row" style="margin-top: 16px;">
     <div class="col-md-6">
-      <form>
+      <form autocomplete="off">
         <div class="form-group">
           <label for="nameInput">Jet Name</label>
           <input type="text" class="form-control" id="nameInput" placeholder="Name">

@@ -3,6 +3,7 @@ import { Jet } from '../../shared/model/jet.model';
 import { JetService } from '../../shared/service/jet.service';
 import { SquadronService } from '../../shared/service/squadron.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-jet-details',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class JetDetailsComponent implements OnInit {
 
-  jet: Jet;
+  jet$: Observable<Jet>;
 
   constructor(private jetService: JetService,
               private squadronService: SquadronService,
@@ -20,10 +21,10 @@ export class JetDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jet = this.jetService.fetchJetById(+this.route.snapshot.params['id']);
+    this.jet$ = this.jetService.fetchJetById(this.route.snapshot.params['id']);
     this.route.params
       .subscribe((params: Params) =>
-        this.jet = this.jetService.fetchJetById(+params['id']));
+        this.jet$ = this.jetService.fetchJetById(params['id']));
   }
 
   addJetToSquadron(jet: Jet) {
@@ -31,8 +32,11 @@ export class JetDetailsComponent implements OnInit {
     this.router.navigate(['squadron'])
   }
 
-  reloadForDemo() {
-    this.router.navigate(['jets', 3]);
+  deleteJet(jetId: string) {
+    this.jetService.deleteJet(jetId).subscribe(() => {
+      this.router.navigate(['jets']);
+    });
   }
+
 
 }
