@@ -13,12 +13,14 @@
         <li>
 
         </li>
-        <form class="navbar-form navbar-right">
-          <span style="margin-right: 8px;" >{{loggedIn ? 'Logged in' : 'Logged out'}}</span>
-          <button  style="margin-right: 8px;" class="btn btn-success" (click)="login()" >Log In</button>
-          <button  style="margin-right: 8px;" class="btn btn-warning" (click)="logout()" >Log Out</button>
-        </form>
       </ul>
+      <div class="navbar-form navbar-right">
+        <form>
+          <span style="margin-right: 8px;">{{loggedIn ? 'Logged in' : 'Logged out'}}</span>
+          <button style="margin-right: 8px;" class="btn btn-success" (click)="login()">Log In</button>
+          <button style="margin-right: 8px;" class="btn btn-warning" (click)="logout()">Log Out</button>
+        </form>
+      </div>
     </div>
   </div>
 </nav>
