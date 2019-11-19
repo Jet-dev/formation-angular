@@ -14,6 +14,7 @@ import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
 import { RouterModule, Routes } from '@angular/router';
 import { JetDetailsEditComponent } from './jets/jet-details-edit/jet-details-edit.component';
 import { CanEditGuard } from './shared/guards/can-edit.guard';
+import { ReversePipe } from './shared/pipes/reverse.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     JetsComponent,
     JetItemComponent,
     JetCreationComponent,
-    JetDetailsEditComponent
+    JetDetailsEditComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
