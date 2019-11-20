@@ -1,23 +1,39 @@
-<form autocomplete="off">
+<form autocomplete="off" (ngSubmit)="onSubmit()" #f="ngForm">
 
-  <div class="contact-information">
+  <div class="contact-information" ngModelGroup="contactInformation">
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" placeholder="First Name">
+      <input type="text" class="form-control" id="firstName"
+             ngModel
+             name="firstName"
+             required
+             placeholder="First Name">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+      <input type="text" class="form-control" id="lastName"
+             ngModel
+             name="lastName"
+             required
+             placeholder="Last Name">
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="Email">
+      <input type="email" class="form-control" id="email"
+             ngModel
+             name="email"
+             #email="ngModel"
+             email
+             required
+             placeholder="Email">
+      <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a correct email</span>
     </div>
   </div>
 
   <div class="form-group">
     <label for="preferedjet">Prefered Jet</label>
-    <select id="preferedjet" class="form-control">
+    <select id="preferedjet" class="form-control"
+            ngModel name="preferedJet" required>
       <option value="Rafale">Rafale</option>
       <option value="Tomcat">Apache Tomcat</option>
     </select>
@@ -25,14 +41,34 @@
 
   <div class="form-group">
     <label for="whyJet">Why do you like this jet ?</label>
-    <textarea class="form-control" id="whyJet" rows="3"></textarea>
+    <textarea class="form-control" name="whyJet" id="whyJet" rows="3" ngModel></textarea>
+
+    <label>I like to fly</label>
+    <div class="radio" *ngFor="let flightPref of flightPreferences">
+      <label>
+        <input type="radio"
+               name="flightPreference"
+               required
+               ngModel
+               [value]="flightPref">
+        {{flightPref }}
+      </label>
+    </div>
+
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox">Check me please
+      <input type="checkbox" ngModel name="checkMe"> Check me please
     </label>
   </div>
+
+  <button type="button"
+          [disabled]="f.invalid"
+          class="btn btn-info" (click)="initForm()">Exemple
+  </button>
+
+  <button type="button" class="btn btn-info" (click)="f.reset()">Reset</button>
 
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
