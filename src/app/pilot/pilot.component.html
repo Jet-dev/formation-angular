@@ -1,0 +1,53 @@
+<form autocomplete="off" [formGroup]="pilotForm" (ngSubmit)="onSubmit()">
+
+  <div class="contact-information" formGroupName="pilotInformation">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control"
+             formControlName="firstName"
+             id="firstName" placeholder="First Name">
+      <span class="help-block" *ngIf="pilotForm.get('pilotInformation.firstName').invalid">
+        <span *ngIf="pilotForm.get('pilotInformation.firstName').errors['required']">
+              This field is Required
+            </span>
+      <span *ngIf="pilotForm.get('pilotInformation.firstName').errors['nameIsForbidden']">
+        This field should not be Theo,Florian or William
+      </span>
+      </span>
+
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control"
+             formControlName="lastName"
+             id="lastName" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control"
+             formControlName="email"
+             id="email" placeholder="Email">
+    </div>
+    <span
+      *ngIf="pilotForm.get('pilotInformation.email').invalid && pilotForm.get('pilotInformation.email').touched"
+      class="help-block">Please Enter a valid Email!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="preferedjet">Prefered Jet</label>
+    <select id="preferedjet" class="form-control" formControlName="preferedJet">
+      <option value="Rafale">Rafale</option>
+      <option value="Tomcat">Apache Tomcat</option>
+    </select>
+  </div>
+
+  <div formArrayName="movies">
+    <h4>Your favorite movies</h4>
+    <button class="btn btn-default" (click)="addMovies()">Add movies</button>
+    <div class="form-group" *ngFor="let control of controls; let index = index">
+      <input type="text" class="form-control" [formControlName]="index">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

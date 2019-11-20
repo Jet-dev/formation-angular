@@ -8,7 +8,7 @@ import { SquadronComponent } from './squadron/squadron.component';
 import { JetListComponent } from './jets/jet-list/jet-list.component';
 import { JetDetailsComponent } from './jets/jet-details/jet-details.component';
 import { JetCreationComponent } from './jets/jet-list/jet-creation/jet-creation.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +16,7 @@ import { JetDetailsEditComponent } from './jets/jet-details-edit/jet-details-edi
 import { CanEditGuard } from './shared/guards/can-edit.guard';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { PilotComponent } from './pilot/pilot.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'squadron', component: SquadronComponent },
+  { path: 'pilot', component: PilotComponent }
   // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -41,11 +43,13 @@ const appRoutes: Routes = [
     JetItemComponent,
     JetCreationComponent,
     JetDetailsEditComponent,
-    ReversePipe
+    ReversePipe,
+    PilotComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
