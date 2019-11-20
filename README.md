@@ -1,27 +1,48 @@
-# FormationAngular
+# LAB 4  Formulaire
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.16.
+> Notre application gère désormais des Jets, mais il nous manque quelque chose de crucial ! Des pilotes 
 
-## Development server
+> Afin de recruter des pilotes il va nous falloir un formulaire adéquat.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Template Driven
+Notre objectif pour ce Lab va être de brancher avec un formulaire Template-Driven le 
+composant Pilot.
 
-## Code scaffolding
+1. Ajouter des ngModel sur les inputs ainsi que les attributs 'name'.
+2. Ajouter une méthode onSubmit sur l'event ngSubmit du Form, qui log le contenu du formulaire.
+3. Au moyen d'un @ViewChild, capturer le form dans le component.
+4. Rendre les champs firstName, lastName et Email Obligatoires.
+5. Ajouter une validation sur l'adresse email grâce au validator 'email'
+6. Si le champs email est invalide et a été touché, Afficher un message d'erreur comme suit: 
+  ```html
+  <span class="help-block">Please enter a valid email address</span>
+  ```
+7. Desactiver le boutton submit si le form n'est pas valide
+8. Ajouter la classe CSS 'has-error' sur les div.form-group don't l'input est invalide.
+9. Ajouter un bouton qui reset le formulaire.
+10. Au chargement du formulaire prénom doit être pré-remplit avec 'Maverick'
+11. Regrouper les champs firstName, lastName et email dans un ngModelGroup nommé 'contactInfo'
+12. Au submit afficher sous le formulaire les valeurs des champs FirstName/LastName/Email
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Reactive
 
-## Build
+> Vous pouvez stash ou commit votre code actuel sur une autre branch et checkout la branche 'lab-4-reactive'
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Dans le component, créer un objet pilotForm: FormGroup
+2. Dans le ngOnInit, remplir cet objet avec la structure du formulaire présent dans l'HTML
+3. Rattacher le formGroup que l'on vient de créer , avec le form dans le html
+4. Attacher les différents inputs gràce à la directive formControlName
+5. Créer une méthode onSubmit() qui lors de l'event ngSubmit, va console.log() le contenu du formulaire
+6. Rendre les champs FirstName, LastName et Email obligatoire
+7. Ajouter une validation sur le champs Email
+8. Si le champs email est invalide et a été touché, Afficher un message d'erreur comme suit: 
+     ```html
+     <span class="help-block">Please enter a valid email address</span>
+     ```
+9. Grouper FirstName, LastName et Email dans un FormGroup intitulé contactInformation
+10. Ajouter un bouton 'Add Skill'
+10. Au moyen d'un formArray, permettre à l'utilisateur d'insérer une liste de 'skills'
+11. Dans le composant, ajouter une propriété forbiddenPilots: string[], contenant un tableau avec 2, 3 prénoms de 
+personnes en qui vous ne feriez pas confiance pour piloter un avion.
+12. Créer un validateur custom qui vérifie que l'utilisateur n'a pas l'un des prénoms dans la liste forbiddenPilots.
+12. Au submit afficher sous le formulaire les valeurs des champs FirstName/LastName/Email

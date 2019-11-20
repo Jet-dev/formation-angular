@@ -16,6 +16,7 @@ import { JetDetailsEditComponent } from './jets/jet-details-edit/jet-details-edi
 import { CanEditGuard } from './shared/guards/can-edit.guard';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { PilotComponent } from './pilot/pilot.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'squadron', component: SquadronComponent },
+  { path: 'pilot', component: PilotComponent }
   // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     JetItemComponent,
     JetCreationComponent,
     JetDetailsEditComponent,
-    ReversePipe
+    ReversePipe,
+    PilotComponent
   ],
   imports: [
     BrowserModule,
