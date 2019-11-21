@@ -11,6 +11,7 @@ import { JetCreationComponent } from './jets/jet-list/jet-creation/jet-creation.
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
+import { JetEditComponent } from './jets/jet-edit/jet-edit.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { JetItemComponent } from './jets/jet-list/jet-item/jet-item.component';
     HomeComponent,
     JetsComponent,
     JetItemComponent,
-    JetCreationComponent
+    JetCreationComponent,
+    JetEditComponent
   ],
   imports: [
     BrowserModule,
