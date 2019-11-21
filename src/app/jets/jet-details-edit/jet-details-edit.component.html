@@ -12,21 +12,22 @@
 
   <div class="row" style="margin-top: 16px;">
     <div class="col-md-6">
-      <form>
-        <div class="form-group">
-          <label for="nameInput">Jet Name</label>
-          <input type="text" class="form-control" id="nameInput" placeholder="Name">
-        </div>
-        <div class="form-group">
-          <label for="makerInput">Jet Maker</label>
-          <input type="text" class="form-control" id="makerInput" placeholder="Maker">
-        </div>
-        <div class="form-group">
-          <label for="pictureInput">Jet Picture Url</label>
-          <input type="text" class="form-control" id="pictureInput" placeholder="Picture">
-        </div>
-        <button class="btn btn-default btn-block">Save changes</button>
-      </form>
+      <div class="form-group">
+        <label for="nameInput">Jet
+          Name</label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Name"
+               name="name" [(ngModel)]="jet.name" [ngModelOptions]="{standalone: true}"
+        >
+      </div>
+      <div class="form-group">
+        <label for="makerInput">Jet Maker</label>
+        <input type="text" class="form-control" id="makerInput" placeholder="Maker">
+      </div>
+      <div class="form-group">
+        <label for="pictureInput">Jet Picture Url</label>
+        <input type="text" class="form-control" id="pictureInput" placeholder="Picture">
+      </div>
+      <button class="btn btn-default btn-block">Save changes</button>
     </div>
   </div>
 </ng-container>

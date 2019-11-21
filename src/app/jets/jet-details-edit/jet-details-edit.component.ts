@@ -3,15 +3,17 @@ import { Jet } from '../../shared/model/jet.model';
 import { JetService } from '../../shared/service/jet.service';
 import { SquadronService } from '../../shared/service/squadron.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { IsDirty } from '../../shared/guards/IsDirty';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-jet-details-edit',
   templateUrl: './jet-details-edit.component.html',
   styleUrls: ['./jet-details-edit.component.css']
 })
-export class JetDetailsEditComponent implements OnInit {
+export class JetDetailsEditComponent implements OnInit, IsDirty {
 
-  jet: Jet;
+  jet: Jet = new Jet(0);
 
   constructor(private jetService: JetService,
               private squadronService: SquadronService,
@@ -28,5 +30,9 @@ export class JetDetailsEditComponent implements OnInit {
 
   saveChanges() {
 
+  }
+
+  isDirty(): boolean | Observable<boolean> {
+    return this.jet.name == 'TOTO';
   }
 }
