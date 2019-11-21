@@ -32,4 +32,38 @@
     1. Créons un composant PageNotFoundComponent pour notifier l'utilisateur qu'il demande une page qui n'existe pas.
     2. A l'aide d'une wildcard redirigeons les path qui ne matchent pas, vers ce nouveau composant.
 
-### 
+### Guards
+
+> Diantre, notre appli n'est point sécurisée ! ~le PO juste avant la démo
+
+1. Modifions le header pour faire une fausse authent
+```html
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">Squadron maker</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          ...
+        </ul>
+        <div class="navbar-form navbar-right">
+          <form>
+            <span style="margin-right: 8px;">{{loggedIn ? 'Logged in' : 'Logged out'}}</span>
+            <button style="margin-right: 8px;" class="btn btn-success" (click)="login()">Log In</button>
+            <button style="margin-right: 8px;" class="btn btn-warning" (click)="logout()">Log Out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+```
+2. Créons un petit fakeAuthService qui va exposer une variable isAuthenticated:boolean et des méthodes login/logout 
+pour toggle ce boolean.
+3. On peut donc maintenant injecter le service dans notre composant header et y faire les branchements 'qui vont bien'
+4. Il nous est désormais possible de créer une garde canActivate qui utilisera ce service pour vérifier si 
+l'utilisateur est connecté !
+    1. Créons la guard 'AuthGuard', de type canActivate
+    2. Utilisons la guard pour empecher la visite de la page /jet/:id/edit si l'ont est pas connecté
+
+
